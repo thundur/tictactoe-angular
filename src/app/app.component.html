@@ -1,18 +1,25 @@
 <h2>Tic Tac Toe</h2>
 <app-login *ngIf="!isLoggedIn()" (loggedIn)="onLoggedIn($event)"></app-login>
 <div *ngIf="isLoggedIn()">
-    I am {{ players[mySymbol] }}, playing with {{ mySymbol }}
-    <p>
-        <app-board
-            [turn]="turn"
-            [players]="players"
-            [me]="mySymbol"
-            [board]="board"
-            (logout)="loggedOff()"
-            (onWin)="gameWon($event)"
-            (onDraw)="gameDraw()"
-            (onReset)="reset()"
-            (onSynchronize)="synchronize()"></app-board>
-        <app-log></app-log>
+    <p class="logoff">
+        <button type="button" (click)="logoff()">Log off</button>
+        <button type="button" (click)="enableLog = true">Enable log</button>
     </p>
+    <div *ngIf="!gameEnded">
+        I am {{ players[mySymbol] }}, playing with {{ mySymbol }}
+        <p>
+            <app-board
+                [turn]="turn"
+                [players]="players"
+                [me]="mySymbol"
+                [board]="board"
+                (onWin)="gameWon($event)"
+                (onDraw)="gameDraw()"
+                (onReset)="reset()"
+                (onSynchronize)="synchronize()"></app-board>
+            <app-log *ngIf="enableLog"></app-log>
+        </p>
+    </div>
+    <app-win *ngIf="gameEnded && winner" [winner]="players[winner]" (onReset)="reset()"></app-win>
+    <app-draw *ngIf="gameEnded && !winner" (onReset)="reset()"></app-draw>
 </div>

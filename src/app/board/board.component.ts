@@ -38,9 +38,6 @@ export class BoardComponent implements OnInit, OnDestroy {
   myBoard: any[][] = [[{}, {}, {}], [{}, {}, {}], [{}, {}, {}]];
 
   @Output()
-  logout: EventEmitter<void> = new EventEmitter<void>();
-
-  @Output()
   onSynchronize: EventEmitter<void> = new EventEmitter<void>();
 
   @Output()
@@ -85,12 +82,6 @@ export class BoardComponent implements OnInit, OnDestroy {
     if(this.myBoard[row][column].available) {
       this.myBoard[row][column].symbol = this.theTurn;
     }
-  }
-
-  onLogoffClicked() {
-    this.actionService.logoff().subscribe(_ => {
-      this.logout.emit();
-    });
   }
 
   send() {

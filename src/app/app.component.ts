@@ -17,6 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   gameEnded: boolean;
   winner: string;
+  enableLog: false;
 
   constructor(private eventStreamService: EventStreamService,
               private actionService: ActionService) {
@@ -36,7 +37,9 @@ export class AppComponent implements OnInit, OnDestroy {
           delete this.players[event.player];
           break;
         case 'reset':
-          this.board = [['','',''],['','',''],['','','']];
+          this.gameEnded = false;
+          this.winner = '';
+          this.board = [['', '', ''], ['', '', ''], ['', '', '']];
           this.turn = 'x';
           break;
       }
@@ -61,10 +64,12 @@ export class AppComponent implements OnInit, OnDestroy {
     this.synchronize();
   }
 
-  loggedOff() {
-    this.players = {};
-    this.turn = '';
-    this.mySymbol = '';
+  logoff() {
+    this.actionService.logoff().subscribe(_ => {
+      this.players = {};
+      this.turn = '';
+      this.mySymbol = '';
+    });
   }
 
   gameWon(winner: string) {

@@ -1,1 +1,1 @@
-<button type="button" class="cell" [disabled]="disabled" (click)="cellClicked()">{{ symbol }}</button>
+<button type="button" class="cell" [disabled]="disabled" (click)="cellClicked()" [attr.data-content]="symbol">{{ symbol }}</button>

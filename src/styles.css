@@ -1,3 +1,21 @@
 body {
     font-family: sans-serif;
 }
+
+button:not(.cell) {
+    height: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: white;
+    border: 2px solid black;
+    margin-right: 20px;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+button:not(.cell):not(:disabled):hover {
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}

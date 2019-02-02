@@ -1,0 +1,30 @@
+<div>
+    <table>
+        <tr>
+            <td><button type="button" class="cell" id="cell0-0"> </button></td>
+            <td><button type="button" class="cell" id="cell0-1"> </button></td>
+            <td><button type="button" class="cell" id="cell0-2"> </button></td>
+        </tr>
+        <tr>
+            <td><button type="button" class="cell" id="cell1-0"> </button></td>
+            <td><button type="button" class="cell" id="cell1-1"> </button></td>
+            <td><button type="button" class="cell" id="cell1-2"> </button></td>
+        </tr>
+        <tr>
+            <td><button type="button" class="cell" id="cell2-0"> </button></td>
+            <td><button type="button" class="cell" id="cell2-1"> </button></td>
+            <td><button type="button" class="cell" id="cell2-2"> </button></td>
+        </tr>
+    </table>
+    <p>
+        It's player <span>{{ players[turn] }}</span>'s (<span>{{ turn }}</span>) turn
+    </p>
+    <p>
+        <button type="button" (click)="send()">Send</button>
+        <button type="button" (click)="reset()">Reset</button>
+        <button type="button" (click)="synchronize()">Sync</button>
+    </p>
+    <p>
+        <button type="button" (click)="onLogoffClicked()">Log off</button>
+    </p>
+</div>

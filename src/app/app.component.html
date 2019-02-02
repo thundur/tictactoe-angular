@@ -3,7 +3,16 @@
 <div *ngIf="isLoggedIn()">
     I am {{ players[mySymbol] }}, playing with {{ mySymbol }}
     <p>
-        <app-board [turn]="turn" [players]="players" [me]="mySymbol" [board]="board" (logout)="loggedOff()" (onSynchronize)="synchronize()"></app-board>
+        <app-board
+            [turn]="turn"
+            [players]="players"
+            [me]="mySymbol"
+            [board]="board"
+            (logout)="loggedOff()"
+            (onWin)="gameWon($event)"
+            (onDraw)="gameDraw()"
+            (onReset)="reset()"
+            (onSynchronize)="synchronize()"></app-board>
         <app-log></app-log>
     </p>
 </div>

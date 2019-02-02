@@ -14,11 +14,13 @@ export class EventStreamService {
   }
 
   onConnection(): any {
-    this.eventSource = new EventSource('/api/tictactoe');
-    this.eventSource.onmessage = (event) => {
-      this.zone.run(() => {
-        this.events.next(JSON.parse(event.data));
-      });
-    };
+    if(!this.eventSource) {
+      this.eventSource = new EventSource('/api/tictactoe');
+      this.eventSource.onmessage = (event) => {
+        this.zone.run(() => {
+          this.events.next(JSON.parse(event.data));
+        });
+      };
+    }
   }
 }

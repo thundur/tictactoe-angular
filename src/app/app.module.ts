@@ -8,6 +8,8 @@ import { LogComponent } from './log/log.component';
 import { LoginComponent } from './login/login.component';
 import { LogLinesComponent } from './log/log-lines/log-lines.component';
 import { CellComponent } from './board/cell/cell.component';
+import { WinComponent } from './win/win.component';
+import { DrawComponent } from './draw/draw.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { CellComponent } from './board/cell/cell.component';
     BoardComponent,
     LogComponent,
     LogLinesComponent,
-    CellComponent
+    CellComponent,
+    WinComponent,
+    DrawComponent
   ],
   imports: [
     BrowserModule,

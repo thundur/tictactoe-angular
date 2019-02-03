@@ -23,4 +23,11 @@ export class EventStreamService {
       };
     }
   }
+
+  onClose() {
+    this.eventSource.close();
+    this.events.complete();
+    this.eventSource = null;
+    this.events = new Subject<any>();
+  }
 }

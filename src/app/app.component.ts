@@ -52,11 +52,13 @@ export class AppComponent implements OnInit, OnDestroy {
 
   synchronize() {
     this.actionService.synchronize().subscribe((data) => {
-      this.players = data.players;
-      this.mySymbol = data.me;
-      this.turn = data.turn;
-      this.board = data.board;
-      this.eventStreamService.onConnection();
+      if(data) {
+        this.players = data.players;
+        this.mySymbol = data.me;
+        this.turn = data.turn;
+        this.board = data.board;
+        this.eventStreamService.onConnection();
+      }
     });
   }
 
@@ -69,6 +71,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.players = {};
       this.turn = '';
       this.mySymbol = '';
+      this.eventStreamService.onClose();
     });
   }
 

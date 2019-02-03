@@ -19,3 +19,7 @@ button:not(.cell):not(:disabled):hover {
     color: #fff;
     cursor: pointer;
 }
+
+button:disabled {
+    color: #aaa;
+}

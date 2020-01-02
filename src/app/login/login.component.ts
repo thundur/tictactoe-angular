@@ -11,7 +11,7 @@ export class LoginComponent {
   @Output()
   loggedIn: EventEmitter<{ symbol: string, username: string }>;
 
-  @ViewChild('username')
+  @ViewChild('username', { static: true })
   username: ElementRef;
 
   constructor(private actionService: ActionService) {

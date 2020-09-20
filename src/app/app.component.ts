@@ -52,7 +52,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   synchronize() {
     this.actionService.synchronize().subscribe((data) => {
-      if(data) {
+      if (data) {
         this.players = data.players;
         this.mySymbol = data.me;
         this.turn = data.turn;

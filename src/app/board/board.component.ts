@@ -15,11 +15,9 @@ export class BoardComponent implements OnInit, OnDestroy {
 
   @Input()
   set turn(turn: string) {
-    this.myTurn = this.me === turn;
     this.theTurn = turn;
   }
 
-  myTurn: boolean;
   theTurn: string;
 
   @Input()
@@ -102,6 +100,10 @@ export class BoardComponent implements OnInit, OnDestroy {
 
   synchronize() {
     this.onSynchronize.emit();
+  }
+
+  get myTurn() {
+    return this.me === this.theTurn;
   }
 
   ngOnDestroy(): void {
